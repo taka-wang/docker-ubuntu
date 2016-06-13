@@ -1,4 +1,4 @@
-# docker-ubuntu
+# docker-ubuntu [![Build Status](https://travis-ci.org/taka-wang/docker-ubuntu.svg?branch=master)](https://travis-ci.org/taka-wang/docker-ubuntu)
 
 ## Build docker images
 ```bash
