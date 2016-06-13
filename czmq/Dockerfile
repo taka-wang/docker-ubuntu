@@ -8,7 +8,7 @@ ENV ZMQ_SRC https://github.com/zeromq/zeromq3-x/releases/download/v$ZMQ_VER/zero
 ENV CZMQ_GIT git://github.com/zeromq/czmq.git
 
 ## Install required development packages
-RUN sudo apt-get update && \
+RUN apt-get update && \
     apt-get install -y git wget build-essential autoconf libtool pkg-config cmake
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh

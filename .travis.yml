@@ -7,17 +7,25 @@ script:
 - docker build -t $CZMQ_IMG czmq/.
 - if [ ! -z "$TRAVIS_TAG" ]; then docker tag $CZMQ_IMG:latest $CZMQ_IMG:$TRAVIS_TAG;
   fi && docker push $CZMQ_IMG
+
 - docker build -t $MODBUS_IMG modbus/.
 - if [ ! -z "$TRAVIS_TAG" ]; then docker tag $MODBUS_IMG:latest $MODBUS_IMG:$TRAVIS_TAG;
   fi && docker push $MODBUS_IMG
+
 - docker build -t $NODEZMQ_IMG nodezmq/.
 - if [ ! -z "$TRAVIS_TAG" ]; then docker tag $NODEZMQ_IMG:latest $NODEZMQ_IMG:$TRAVIS_TAG;
   fi && docker push $NODEZMQ_IMG
+
+- docker build -t $DOXYGEN_IMG nodezmq/.
+- if [ ! -z "$TRAVIS_TAG" ]; then docker tag $DOXYGEN_IMG:latest $DOXYGEN_IMG:$TRAVIS_TAG;
+  fi && docker push $DOXYGEN_IMG
+
 env:
   global:
   - CZMQ_IMG=takawang/ubuntu-czmq
   - MODBUS_IMG=takawang/ubuntu-modbus
   - NODEZMQ_IMG=takawang/ubuntu-node-zmq
+  - DOXYGEN_IMG=takawang/ubuntu-doxygen
   - secure: e36j1BZMCGTzOQn/4KiDAg6i9AZAKmhAE6ktu/+4uGQdLNXKvT5tESo/+qoq2P1B0xjNpP0vxeLWYPkqFaIlZXHKwiY42uxVpwkFn+LKwClfkDwGVhwFoxDUckxbSRuUAz9L64nA8HDyfX8T93Bb1+n1uvhe+nytunowR56Rb2s3idNiCOUx0icpJQxX48ZEgn/hmlBgzet2Y6ak7Bg46xGffbgGBSh+GeMFOc12/9HDgw0QqFaHbwO02H4x9/B/FSoV0+UsV8ArF4aj01agMia08fzuVeohZ4RJvW6qzyWZwgaXHhUXtPJp0V/bervnUOJDwGW746so7CBP8NtxfHUJNeI+C6XpILfBpJu0raJbL8vmZprvmbFP0FBRdbJk/N488nqHeycJnEOx1utngv5SidKVXY1CfLBrQ1wjfBKv6nRoIXUeyXbuGAIij8TBJKmxF8EdYR2fMlo6zCzQPUdk5UXYYLOx/ryBOQeGJPl4Wy+PnIQ6geAemN4rRbR0lsB3X54Sono/+uVjaP3kRVrXgctExwaS5nRFvm+C87hzEbNLaTfsbYTqE7MLgckODwPMEvogmLkfa4ZJqnpksvjkaKyMoOn6zsx01LD2bIvH3fDHxpOrHWIR3FeTrfk8Dgk7j8f21FVHZKfShcog0qRJNFoRDKDxPEBqhWudmKI=
   - secure: qws47iboEtpONAxsXvT35q4vouhEWHkjUA5PkOia3XLd8ZBHKncsQtp66SXrfQ4xQmElBdVcS3bdGnmHYJFKyXU3uOavc7NQbJhuk8XvyMrN7I8nzWoewFcLWQwKGefmSYlpT56CUIiJez4X7Rvys42hdy7MrLB65Y23Z6KzlGPYDQX4sqG0VdFI2rYSBDqJRNOWOzzwHNKD9DKShzKBdalyuSAxrDx5rzRfNh7LWjtpF70U70dJMHuqBi44++gdHEmiPgIaGT49QrUb86pJUzh9j/4qknGNnKTn0Yu0y7MlcAutjmWk9Chn662c3HbzEEhEVADXsdT1l9ZX5NGjAMk0GUJW3GLE374j5wtrXE8WzboFXEKuo9+Mi96Sqz0wbbIE8s/yt1kXQVAUVteTk/TG3ugg7P8seIT8Sl/GfxgUXOzx4XgjfHrk4cQQ1pVXLKQZ6MJ3QgCc+siblBh0bAcwBaFb/XWQBvSxxJRwYL7sflG9SMOHfyRxbF6zU93NExkfwPUidGujVEsFYz+tRIpA+B4FCkKLq/opsufvPR06jo9RakLYDfI3Nv+HSOBLYmpTN78yK/M6akyNHDSesuRtE6c9Qu74wgsspKfjYfJsILSey77zY8eujBZpApaR+PJyN0CBZp+P3OoA/yKVIlsouEW+RakLlMCjR0Y+vqE=
 notifications:

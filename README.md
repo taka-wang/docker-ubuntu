@@ -10,6 +10,10 @@ docker build -t takawang/ubuntu-czmq czmq/.
 # ubuntu 14.04 with lbizmq, czmq and libmodbus
 docker build -t takawang/ubuntu-modbus modbus/.
 
+# ubuntu 14.04 with doxygen
+docker build -t takawang/ubuntu-doxygen doxygen/.
+
 # node.js 4.4.5 with zmq3
 docker build -t takawang/node-zmq nodezmq/.
+
 ```
