@@ -6,4 +6,5 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ## Install deps
 RUN apt-get update && \
-    apt-get install -y libzmq3-dev
+    apt-get install -y libzmq3-dev && \
+    npm install mocha -g
