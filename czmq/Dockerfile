@@ -11,7 +11,7 @@ ENV CZMQ_GIT git://github.com/zeromq/czmq.git
 
 ## Install required development packages
 RUN apt-get update
-RUN apt-get install -y git wget build-essential autoconf libtool pkg-config cmake
+RUN apt-get install -y git wget build-essential autoconf libtool pkg-config cmake valgrind
 
 ## Install libzmq
 WORKDIR  /
