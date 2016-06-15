@@ -7,7 +7,7 @@ Dockerfile repo for development environment
 # ubuntu 14.04 with libzmq and czmq
 docker build -t takawang/ubuntu-czmq czmq/.
 
-# ubuntu 14.04 with lbizmq, czmq and libmodbus
+# ubuntu 14.04 with libzmq, czmq and libmodbus
 docker build -t takawang/ubuntu-modbus modbus/.
 
 # ubuntu 14.04 with doxygen
