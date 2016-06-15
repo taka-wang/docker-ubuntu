@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV ZMQ_VER 3.2.5
 ENV ZMQ_SRC https://github.com/zeromq/zeromq3-x/releases/download/v$ZMQ_VER/zeromq-$ZMQ_VER.tar.gz
 
+RUN apt-get update && apt-get install -y pkg-config
 
 ## Install libzmq
 WORKDIR  /
