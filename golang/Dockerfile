@@ -9,7 +9,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # update and wget
 RUN apt-get -qq update && \
-    apt-get -qqy install wget git
+    apt-get -qqy install wget git build-essential
 
 # Install golang
 
