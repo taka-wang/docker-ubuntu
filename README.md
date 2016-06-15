@@ -16,4 +16,10 @@ docker build -t takawang/ubuntu-doxygen doxygen/.
 # node.js 4.4.5 with zmq3
 docker build -t takawang/node-zmq nodezmq/.
 
+# ubuntu 14.04 with golang 1.6.x
+docker build -t takawang/ubuntu-golang golang/.
+
+# ubuntu 14.04 with golang 1.6.x and zmq
+docker build -t takawang/ubuntu-gozmq gozmq/.
+
 ```
