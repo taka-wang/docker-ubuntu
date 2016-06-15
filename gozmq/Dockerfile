@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ## Install deps
 RUN apt-get update && \
-    apt-get install -y libzmq3-dev pkg-config
+    apt-get install -y libzmq3 libzmq3-dev pkg-config
 
 WORKDIR /go
 RUN go get github.com/taka-wang/zmq3
