@@ -8,7 +8,6 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 ENV ZMQ_VER 3.2.5
 ENV ZMQ_SRC https://github.com/zeromq/zeromq3-x/releases/download/v$ZMQ_VER/zeromq-$ZMQ_VER.tar.gz
 ENV CZMQ_GIT git://github.com/zeromq/czmq.git
-ENV MB_GIT https://github.com/stephane/libmodbus.git
 
 ## Install required development packages
 RUN apt-get update
@@ -34,7 +33,7 @@ RUN ./autogen.sh && \
     make install && \
     ldconfig
 
-
+ENV MB_GIT https://github.com/stephane/libmodbus.git
 
 ## Install libmodbus
 WORKDIR  /
