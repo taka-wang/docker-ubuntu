@@ -26,4 +26,4 @@ WORKDIR /
 RUN rm -rf /zeromq-$ZMQ_VER
 
 WORKDIR /go
-RUN go get github.com/taka-wang/zmq3
+RUN go get github.com/takawang/zmq3
