@@ -28,13 +28,8 @@ script:
 - if [ ! -z "$TRAVIS_TAG" ]; then docker tag $GOZMQ_IMG:latest $GOZMQ_IMG:$TRAVIS_TAG;
   fi && docker push $GOZMQ_IMG
 
-- docker build -t $DRONE_IMG drone/.
-- if [ ! -z "$TRAVIS_TAG" ]; then docker tag $DRONE_IMG:latest $DRONE_IMG:$TRAVIS_TAG;
-  fi && docker push $DRONE_IMG
-
 env:
   global:
-  - DRONE_IMG=takawang/ubuntu-drone-psmb
   - CZMQ_IMG=takawang/ubuntu-czmq
   - MODBUS_IMG=takawang/ubuntu-modbus
   - NODEZMQ_IMG=takawang/ubuntu-node-zmq
