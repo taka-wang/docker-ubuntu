@@ -40,7 +40,7 @@ WORKDIR  /
 RUN git clone $MB_GIT
 WORKDIR  /libmodbus
 RUN ./autogen.sh && \
-    ./configure && \
+    ./configure --prefix=/usr && \
     make && \
     make install && \
     ldconfig
