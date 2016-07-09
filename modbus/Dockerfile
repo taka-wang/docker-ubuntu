@@ -6,11 +6,12 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV MB_GIT https://github.com/stephane/libmodbus.git
 
 ## Install libmodbus
-WORKDIR  /
-RUN git clone $MB_GIT
-WORKDIR  /libmodbus
-RUN ./autogen.sh && \
-    ./configure && \
+RUN cd / && \
+    git clone $MB_GIT && \
+    cd libmodbus && \
+    ./autogen.sh && \
+    ./configure --prefix=/usr && \
     make && \
     make install && \
-    ldconfig
+    ldconfig && \
+    rm -rf /libmodbus
