@@ -32,3 +32,7 @@ RUN ./autogen.sh && \
     make && \
     make install && \
     ldconfig
+
+## Clean up 
+RUN rm -rf /czmq /zeromq-$ZMQ_VER zeromq-$ZMQ_VER.tar.gz
+WORKDIR  /

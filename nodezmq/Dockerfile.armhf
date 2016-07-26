@@ -1,0 +1,10 @@
+FROM hypriot/rpi-node:4.4.4
+MAINTAINER Taka Wang <taka@cmwang.net>
+ 
+## Set environment variable
+ENV TERM linux
+
+## Install deps
+RUN apt-get update && \
+    apt-get install -y libzmq3-dev && \
+    npm install mocha -g

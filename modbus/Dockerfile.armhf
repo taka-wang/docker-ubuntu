@@ -1,0 +1,16 @@
+FROM takawang/czmq:armhf
+MAINTAINER Taka Wang <taka@cmwang.net>
+ 
+## Set environment variable
+ENV TERM linux
+ENV MB_GIT https://github.com/stephane/libmodbus.git
+
+## Install libmodbus
+WORKDIR  /
+RUN git clone $MB_GIT
+WORKDIR  /libmodbus
+RUN ./autogen.sh && \
+    ./configure && \
+    make && \
+    make install && \
+    ldconfig

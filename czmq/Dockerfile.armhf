@@ -1,8 +1,8 @@
-FROM takawang/ubuntu-gozmq
+FROM armv7/armhf-ubuntu:14.04
 MAINTAINER Taka Wang <taka@cmwang.net>
  
 ## Set environment variable
-ENV DEBIAN_FRONTEND noninteractive
+ENV TERM linux
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 ENV ZMQ_VER 3.2.5
@@ -15,8 +15,9 @@ RUN apt-get install -y git wget build-essential autoconf libtool pkg-config cmak
 
 ## Install libzmq
 WORKDIR  /
-RUN wget $ZMQ_SRC
-RUN tar xvzf zeromq-$ZMQ_VER.tar.gz
+RUN wget $ZMQ_SRC &&  \
+    tar xvzf zeromq-$ZMQ_VER.tar.gz
+
 WORKDIR /zeromq-$ZMQ_VER
 RUN ./configure && \
     make && \
@@ -33,14 +34,6 @@ RUN ./autogen.sh && \
     make install && \
     ldconfig
 
-ENV MB_GIT https://github.com/stephane/libmodbus.git
-
-## Install libmodbus
+## Clean up 
+RUN rm -rf /czmq /zeromq-$ZMQ_VER zeromq-$ZMQ_VER.tar.gz
 WORKDIR  /
-RUN git clone $MB_GIT
-WORKDIR  /libmodbus
-RUN ./autogen.sh && \
-    ./configure --prefix=/usr && \
-    make && \
-    make install && \
-    ldconfig
