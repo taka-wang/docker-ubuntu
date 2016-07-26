@@ -1,4 +1,4 @@
-FROM takawang/ubuntu-czmq
+FROM takawang/czmq:x86
 MAINTAINER Taka Wang <taka@cmwang.net>
  
 ## Set environment variable

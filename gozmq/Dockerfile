@@ -1,4 +1,4 @@
-FROM takawang/ubuntu-golang
+FROM takawang/golang:x86
 MAINTAINER Taka Wang <taka@cmwang.net>
  
 ## Set environment variable
